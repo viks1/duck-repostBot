@@ -12,4 +12,4 @@ this is a discord.py bot that can help avoid the pin limit on discord by pinning
 at emoji.name= add your own emoji or use the default one, and also you can change the required amount of reactions for a message to be pinned at len(reacters)>3
 - to use a custom emoji you have to rename the emoji.name to str(emoji)=="<:custom_emoji:id>" (replace custom_emoji with the emoji name and change the id to the one of the emoji)
 # Support
-for any questions or issues, contact me on discord: viks#5591
+for any questions or issues, contact me on discord: viks#9524
