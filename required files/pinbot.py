@@ -5,10 +5,11 @@ import json
 class pinbot(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-        self.pinbot_channel_id=000000000000000 #the id of the channel where the pins will be posted
+        self.pinbot_channel_id=836156054118072320 #the id of the channel where the pins will be posted
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
+        print("raboti!")
         message_id=payload.message_id
         msg_channel_id=payload.channel_id
         emoji=payload.emoji
@@ -27,7 +28,7 @@ class pinbot(commands.Cog):
                 for item in reactions:
                     if str(item.emoji)=="📌":
                         reacters=await item.users().flatten()
-                if len(reacters)>3:  #add your custom reaction amount here (default is above 3)
+                if len(reacters)>1:  #add your custom reaction amount here (default is above 3)
                     embed=discord.Embed(color=0xff0000)
                     if message.attachments:
                         embed.set_image(url=message.attachments[0].url)
