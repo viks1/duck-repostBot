@@ -58,9 +58,9 @@ class RepostBot(commands.Bot):
         embed.add_field(name="reactions", value=f"{reaction.count}", inline=True)
         await repost_channel.send(embed=embed)
 
-    @commands.has_permissions(administrator=True)  # !pins 5
+    @commands.has_permissions(administrator=True)  # !repost 5
     @commands.command()
-    async def pins(self, ctx, threshold: int):
+    async def repost(self, ctx, threshold: int):
         print("Setting threshold...")
         if threshold <= 0:
             await ctx.send("The threshold must be greater than 0.")
@@ -68,8 +68,8 @@ class RepostBot(commands.Bot):
         self.reaction_threshold = threshold
         await ctx.send(f"The reaction threshold has been set to {threshold}.")
 
-    @pins.error
-    async def pins_error(self, ctx, error):
+    @repost.error
+    async def repost_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
             await ctx.send("You do not have permission to use this command.")
         elif isinstance(error, commands.BadArgument):
