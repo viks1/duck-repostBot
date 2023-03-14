@@ -5,7 +5,7 @@ import json
 class pinbot(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-        self.pinbot_channel_id=000000000000000000 #the id of the channel where the pins will be posted
+        self.pinbot_channel_id=000000000000000 #the id of the channel where the pins will be posted
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
