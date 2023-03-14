@@ -1,11 +1,13 @@
 import discord
 import random
 from discord.ext import commands
+import tracemalloc
+tracemalloc.start()
 
-intents = discord.Intents.default();
+intents = discord.Intents.default()
 intents.members = True
 
-bot = commands.Bot(command_prefix='.', intents=intents)
+bot = commands.Bot(command_prefix='/', intents=intents)
 bot.remove_command('help')
 
 
@@ -26,6 +28,10 @@ async def help(ctx):
     await author.send(embed=embed)
     await ctx.message.delete()
 
+async def setup():
+    await bot.wait_until_ready()
+    await bot.load_extension('pinbot')
+bot.run('NjkyNDEyMjQxOTQ5MjI5MTQ2.G479WU.yf96JfBFMa9GSHjk5GLt9UXCvsF09Bbl8sPAEM')
 
 @bot.command()
 async def test(ctx):
@@ -37,7 +43,3 @@ async def test(ctx):
 async def ping(ctx):
     await ctx.send(f'latency is {round(bot.latency * 1000)}ms')
     await ctx.message.delete()
-
-
-bot.load_extension('pinbot')
-bot.run('your_token_here')
