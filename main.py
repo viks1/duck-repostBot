@@ -8,7 +8,7 @@ class RepostBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix='!', intents=intents)
         self.reposted_messages = set()
-        self.reaction_threshold = 1  # Default threshold
+        self.reaction_threshold = 3  # Default threshold
 
     async def on_ready(self):
         print('Logged in as')
@@ -31,7 +31,7 @@ class RepostBot(commands.Bot):
             return
 
         # Get the repost channel and send the message as an embed
-        repost_channel = discord.utils.get(message.guild.channels, name='pinbot') #######################################
+        repost_channel = discord.utils.get(message.guild.channels, name='pins') # Find the channel pins
         if not repost_channel:
             return
 
@@ -58,7 +58,7 @@ class RepostBot(commands.Bot):
         embed.add_field(name="reactions", value=f"{reaction.count}", inline=True)
         await repost_channel.send(embed=embed)
 
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(administrator=True)  # !pins 5
     @commands.command()
     async def pins(self, ctx, threshold: int):
         print("Setting threshold...")
