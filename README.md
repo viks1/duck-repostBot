@@ -13,6 +13,6 @@
 - change the required amount of reactions directly in the code or using the !pins x command (where x is the desired amount, you have to be an Administrator)
 - at name='pins' you can change the repost channel
 # Support
-for any questions or issues, contact me on discord: viks#9524
+for any questions or issues, contact me on discord: viks#5555
 
 ### have fun :)
